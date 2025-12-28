@@ -8,7 +8,9 @@ This acceleration is reflected in this year’s Time Magazine cover, which desig
 
 <figure style="text-align: center;">
   <img src="images/times_2025.jpg" alt="Times 2025 cover" style="width: 60%;">
-  <figcaption><strong>Fig. 1: Time Magazine (2025): “The Architects of AI”</strong>. <small>From left to right: Mark Zuckerberg (Meta), Lisa Su (AMD), Elon Musk (xAI, TESLA, SpaceX), Jensen Huang (Nvidia), Sam Altman (OpenAI), Demis Hassabis (Google Deepmind), Dario Amodei (Anthropic), and Fei-Fei Li (AI researcher). </small></figcaption>
+  <figcaption><strong>Fig. 1: Time Magazine (2025): “The Architects of AI”</strong>. <small>From left to right: Mark Zuckerberg (Meta), Lisa Su (AMD), Elon Musk (xAI, TESLA, SpaceX), Jensen Huang (Nvidia), Sam Altman (OpenAI), Demis Hassabis (Google Deepmind), Dario Amodei (Anthropic), and Fei-Fei Li (AI researcher). 
+  
+  </small></figcaption>
 </figure>
 
 Yet, despite its prominence, fundamental questions remain unresolved. What does data science precisely encompass as a discipline? What technical and conceptual foundations lie behind the term "artificial intelligence"? And to what extent do recent developments represent genuine novelty rather than the maturation of long-standing statistical and computational ideas? In the end, what is truly data science? What does AI hides behind its fancy hood? Are those really new?
