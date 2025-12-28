@@ -1,3 +1,3 @@
 # Introduction to Data Science
 
-<img src="/images/times_2025.jpg" alt="Times cover 2025">
+![Times 2025 cover](/images/times_2025.jpg)
