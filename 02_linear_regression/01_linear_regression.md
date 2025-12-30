@@ -107,16 +107,50 @@ and since this is not very compelling alone, we also realize a regression line w
 
 <figure style = "text-align: center;">
     <p align="center">
-        <img src = "figures/slr_life_expectancy.png" style = "width: 80%;">
+        <img src = "figures/slr_life_expectancy.png" style = "width: 60%;">
         <p align="center">
             <strong>Fig. 1</strong> Manually computed regression line on synthetic data. (Simple linear regression).
         </p>
     </p>
 </figure>
 
+And as one can see, the fit seems to be the best possible given the model specification.
+Now that we have our estimated parameters, it could be tempting to interpret this coefficient
+and say something like "without any education, a typical human being lives until $37$ years old
+and subsequently, any additional year of schooling increase life expectancy by $1.016$ years".
+This leads us to the next section.
 
+### A Machine Learning Scientist is not an Econometrician 
 
+It is crucial to emphasize that, in this simulated machine-learning setting, the objective is *prediction* rather than *causal inference*. The focus is therefore on out-of-sample performance, not on the substantive interpretation of parameter estimates. In this sense, the machine-learning scientist primarily asks whether the model generalizes well to unseen data, whereas the econometrician is concerned with whether a coefficient admits a defensible causal interpretation.
 
+Such an interpretation requires the satisfaction of a strict set of assumptions (including correct functional form, random sampling, sufficient variation in the regressors, exogeneity, and homoskedasticity) without which no causal claim can be credibly sustained. As these conditions are not the object of the present analysis, issues such as coefficient bias, efficiency, and hypothesis testing are deliberately set aside. Readers interested in a rigorous treatment of causal interpretation within the linear regression framework are referred to the freely available and interactive textbook  [*Introduction to Econometrics with R*](https://www.econometrics-with-r.org/index.html).
+
+### Quality of the Predictions
+
+While we do not pretend to be econometricians, we can still, and in fact must, assess the quality of the fit. For this, we primarily rely on the *residual standard error* (RSE) defined as:
+
+$$
+\mathrm{RSE} = \sqrt{\frac{1}{n-2}\sum_{i=1}^{n} \bigl(y_i  - \hat{y}_i \bigr)^2}
+$$
+
+The fact that we divide by $n-2$ instead of $n$ is to account for the degree of freedom. If we were to divide by $n$ we would underestimate the noise in our regression, on average. Another commonly used metric is the $R^2$ score:
+
+$$
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \overline{y})^2} = 1 - \frac{\mathrm{RSS}}{\mathrm{TSS}}
+$$
+
+In substance, the $R^2$ score $\in [0, 1]$ describes the share of variation in the target variable that we are able to explain with our predictor. It is straightforward to see that if our predictor can explain no variance at all, we will have $\mathrm{RSS} = \mathrm{TSS}$, meaning that not a single fraction of the total variance in $y$ was explained by the regression; this entails that $R^2$ would equal $0$.
+Now, we could ask, what is a good benchmark for the $R^2$ score? Well the true answer is that there are no unique benchmark and it depends vastly on the nature of the problem. For instance, if we are observing chemical reactions grounded in the laws of physics and they predict a linear relation, we should observe an $R^2$ score extremelly close to $1$. On the other hand, if we are in the realm of quantitative finance and we try to understand if a momentum based long-short strategy can earn abnormal returns on the market, an $R^2$ score of $0.1$ would be quite a *tour de force*. In the next section I
+discuss the multiple linear regression (MLR) problem, in which we use several predictors simultaneously to predict the response.
+
+## 3. Multiple Linear Regression
+
+to be written. 
+
+## 4. Further Considerations
+
+to be written.
 
 
 ## References
