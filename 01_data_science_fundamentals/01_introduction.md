@@ -33,7 +33,11 @@ where $Y$ is defined as the *target variable*, *dependent variable*, or *respons
 
 ## 4. Purpose of this Repository
 
-The purpose of this repository is to blend conceptual knowledge with technical expertise in the fields of data science and machine learning. It is not destined to be an exhaustive overview of both disciplines, not in breadth, neither in depth, but rather a collection of selected and fundamentals topics. In the end, the objective is to build some small-scale data mining / ML projects for practical applications. Finally, the reader should not that the core reference of this entire repository will be Hastie et al.'s landmark book *An Introduction to Statistical Learning*. 
+The purpose of this repository is to blend conceptual knowledge with technical expertise in the fields of data science and machine learning. It is not destined to be an exhaustive overview of both disciplines, not in breadth, neither in depth, but rather a collection of selected and fundamentals topics. In the end, the objective is to build some small-scale data mining / ML projects for practical applications. Finally, the reader should not that the core reference of this entire repository will be Hastie et al.'s landmark book *An Introduction to Statistical Learning*.
+
+## 5. Purpose of `01_data_science_fundamentals`
+
+The main objective of this chapter is to give an overview of what the beginning of a very simple data science machine learning project looks like with the `Auto MPG` data set. Therefore, the natural next step is to read and understand [02_mini_ml_project.ipynb](02_mini_ml_project.ipynb)
 
 
 ## References
