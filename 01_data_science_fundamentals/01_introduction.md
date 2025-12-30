@@ -6,9 +6,9 @@ Over the past decade, data science and artificial intelligence (AI) have moved f
 
 This acceleration is reflected in this year’s Time Magazine cover, which designates “The Architects of AI” as the symbolic figures of the moment. Beyond individual personalities, the cover captures a broader reality: AI is no longer confined to laboratories but embedded in large technology firms, startups, public institutions, and everyday tools. Investment volumes, regulatory initiatives, and public discourse between 2020 and 2025 all point to AI becoming a general-purpose technology with far-reaching implications.
 
-<figure style="text-align: center;">
+<figure style="margin: 0 auto; width: 80vw; text-align: center;">
   <img src="images/times_2025.jpg" alt="Times 2025 cover" style="width: 60%;">
-  <figcaption><strong>Fig. 1: Time Magazine (2025): “The Architects of AI”</strong>. <small>From left to right: Mark Zuckerberg (Meta), Lisa Su (AMD), Elon Musk (xAI, TESLA, SpaceX), Jensen Huang (Nvidia), Sam Altman (OpenAI), Demis Hassabis (Google Deepmind), Dario Amodei (Anthropic), and Fei-Fei Li (AI researcher). 
+  <figcaption style="text-align:justify;"><strong>Fig. 1: Time Magazine (2025): “The Architects of AI”</strong>. <small>From left to right: Mark Zuckerberg (Meta), Lisa Su (AMD), Elon Musk (xAI, TESLA, SpaceX), Jensen Huang (Nvidia), Sam Altman (OpenAI), Demis Hassabis (Google Deepmind), Dario Amodei (Anthropic), and Fei-Fei Li (AI researcher). 
   
   </small></figcaption>
 </figure>
