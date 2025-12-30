@@ -108,9 +108,9 @@ and since this is not very compelling alone, we also realize a regression line w
 <figure style = "text-align: center;">
     <p align="center">
         <img src = "figures/slr_life_expectancy.png" style = "width: 80%;">
-        <figcaption>
+        <p align="center">
             <strong>Fig. 1</strong> Manually computed regression line on synthetic data. (Simple linear regression).
-        </figcaption>
+        </p>
     </p>
 </figure>
 
