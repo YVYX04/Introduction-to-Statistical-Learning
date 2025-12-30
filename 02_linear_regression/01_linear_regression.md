@@ -106,10 +106,12 @@ Slope (b1): 1.0155605359752424
 and since this is not very compelling alone, we also realize a regression line with those exact same coefficients to see how well we fit the data (Fig. 1).
 
 <figure style = "text-align: center;">
-    <img src = "figures/slr_life_expectancy.png" style = "width: 60%;">
-    <figcaption>
-        <strong>Fig. 1</strong> Manually computed regression line on synthetic data. (Simple linear regression).
-    </figcaption>
+    <p align="center">
+        <img src = "figures/slr_life_expectancy.png" style = "width: 80%;">
+        <figcaption>
+            <strong>Fig. 1</strong> Manually computed regression line on synthetic data. (Simple linear regression).
+        </figcaption>
+    </p>
 </figure>
 
 
