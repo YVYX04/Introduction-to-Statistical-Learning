@@ -1,17 +1,22 @@
 # Linear Regression
-## The Basic Algorithm of Supervised Learning
+### *The Basic Algorithm of Supervised Learning*
+
+---
+
+© 2026 Yvan Richard.    
+*All rights reserved.*
 
 ## 1. Introduction
 
-Linear regression is one of the simplest, yet most fundamental, algorithms in supervised learning, and it is specifically designed to address *regression* problems. To be precise, supervised learning comprises two main classes of prediction tasks: *regression* and classif*ication, which differ by the nature of the variable to be predicted.
+Linear regression is one of the simplest, yet most fundamental, algorithms in supervised learning, and it is specifically designed to address *regression* problems. To be precise, supervised learning comprises two main classes of prediction tasks: *regression* and *classification*, which differ by the nature of the variable to be predicted.
 
 A regression task consists in predicting a continuous numerical variable, such as fuel efficiency (`mpg`), income, or temperature. By contrast, a classification task aims to assign observations to a finite set of discrete categories (e.g. dog vs. cat). A common special case is *binary classification*, where the target variable takes only two possible values, often encoded as $0$ and $1$ (for instance, whether a patient tests positive or negative for a given disease).
 
-In this chapter, the focus is exclusively on regression problems. Linear regression provides a baseline yet powerful framework for modeling the relationship between a set of explanatory variables and a continuous response variable, and serves as a conceptual and mathematical foundation for many more advanced methods in statistical learning. Finally, I repeat that most of my writings are heavily inspired by Hastie et al. (2009), unless explicitely mentioned otherwise.
+In this chapter, the focus is exclusively on regression problems. Linear regression provides a baseline yet powerful framework for modeling the relationship between a set of explanatory variables and a continuous response variable, and serves as a conceptual and mathematical foundation for many more advanced methods in statistical learning.
 
 ## 2. The Simple Linear Regression
 
-### Model Specification
+### 2.1. Model Specification
 
 The simple linear regression (SLR) framework is very straightforward.
 our purpose is to find a relationship that allows us to explain the behavior of $Y$, the target (random) variable, in function of $X$, the independent (random) variable. Therefore, our model takes the form:
@@ -26,7 +31,7 @@ $$
 \hat y = \hat{\beta}_0 + \hat{\beta}_1 x
 $$
 
-### Computing the Coefficients
+### 2.2. Computing the Coefficients
 
 Once $\hat y$ has been predicted, one can compute the squared sum of the *residuals* (RSS) as:
 
@@ -56,7 +61,7 @@ $$
 
 where $\overline{xy} = 1/n \cdot \sum_{i=1}^{n} x_i y_i$, $\overline{x} = 1/n \cdot \sum_{i=1}^{n} x_i$ (same for $\overline{y}$), then $\overline{x^2} = 1/n \cdot \sum_{i=1}^{n} x_i^2$, and finally $\overline{x}^2 = \bigl( 1/n \cdot \sum_{i=1}^{n} x_i \bigr)^2$.
 
-### Synthetic Example
+### 2.3. Synthetic Example
 
 To visually and computationally demonstrate the results we obtained above, I create a synthetic data set composed of two variables: `life_exp`, and `yrs_school` (based on real empirical observations). This data set is available [here](data/life_expectancy_data.csv) and it is constructed as:
 
@@ -120,13 +125,13 @@ and say something like "without any education, a typical human being lives until
 and subsequently, any additional year of schooling increase life expectancy by $1.016$ years".
 This leads us to the next section.
 
-### A Machine Learning Scientist is not an Econometrician 
+### 2.4. A Machine Learning Scientist is not an Econometrician 
 
 It is crucial to emphasize that, in this simulated machine-learning setting, the objective is *prediction* rather than *causal inference*. The focus is therefore on out-of-sample performance, not on the substantive interpretation of parameter estimates. In this sense, the machine-learning scientist primarily asks whether the model generalizes well to unseen data, whereas the econometrician is concerned with whether a coefficient admits a defensible causal interpretation.
 
-Such an interpretation requires the satisfaction of a strict set of assumptions (including correct functional form, random sampling, sufficient variation in the regressors, exogeneity, and homoskedasticity) without which no causal claim can be credibly sustained. As these conditions are not the object of the present analysis, issues such as coefficient bias, efficiency, and hypothesis testing are deliberately set aside. Readers interested in a rigorous treatment of causal interpretation within the linear regression framework are referred to the freely available and interactive textbook  [*Introduction to Econometrics with R*](https://www.econometrics-with-r.org/index.html).
+Such an interpretation requires the satisfaction of a strict set of assumptions (including correct functional form, random sampling, sufficient variation in the regressors, exogeneity, and homoskedasticity) without which no causal claim can be credibly sustained. As these conditions are not the object of the present analysis, issues such as coefficient bias, efficiency, and hypothesis testing are deliberately set aside for later sections. Readers interested in a rigorous treatment of causal interpretation within the linear regression framework are referred to read the freely available and interactive textbook  [*Introduction to Econometrics with R*](https://www.econometrics-with-r.org/index.html), as well as an attached script I realized in *R*.
 
-### Quality of the Predictions
+### 2.5. Quality of the Predictions
 
 While we do not pretend to be econometricians, we can still, and in fact must, assess the quality of the fit. For this, we primarily rely on the *residual standard error* (RSE) defined as:
 
@@ -146,13 +151,145 @@ discuss the multiple linear regression (MLR) problem, in which we use several pr
 
 ## 3. Multiple Linear Regression
 
-to be written. 
+In the above section we discussed simple linear regression (SLR). I now show how this model can be generalized to $k$ predictors.
+In general, we will assume that $k \in \mathbb{N}$ represents the number of predictors in the model's specification. Hence, the multiple linear regression with $k$ predictors is specified as:
 
-## 4. Further Considerations
+$$
+Y = \beta_0 + \sum_{i = 1}^{k} \beta_k X_k + \varepsilon
+$$
 
-to be written.
+where $X_k$ represents the $k$-th predictor and $\beta_k$ its associated coefficient. At this stage, we will proceed to convert this cumbersome notation to a cleaner and simplier matrix notation:
 
+$$
+\mathbf{y} = X \beta  + \varepsilon
+$$
 
-## References
+where:
 
-- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *An introduction to statistical learning*.
+$$
+\mathbf{y} =
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{bmatrix},
+\qquad
+X =
+\begin{bmatrix}
+\mathbf{x_1}^\top \\
+\mathbf{x_2}^\top \\
+\vdots \\
+\mathbf{x_n}^\top
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & x_{11} & \cdots & x_{1k} \\
+1 & x_{21} & \cdots & x_{2k} \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & x_{n1} & \cdots & x_{nk}
+\end{bmatrix},
+$$
+
+$$
+\beta =
+\begin{bmatrix}
+\beta_0 \\
+\beta_1 \\
+\beta_2 \\
+\vdots \\
+\beta_k
+\end{bmatrix},
+\qquad
+\varepsilon =
+\begin{bmatrix}
+\varepsilon_1 \\
+\varepsilon_2 \\
+\vdots \\
+\varepsilon_n
+\end{bmatrix}.
+$$
+
+Here, I simply rely on the standard linear algebra notation and the reader will note that a constant column of ones was added in the feature matrix $X$ to account for the intercept of the model $\beta_0$.
+
+### 3.1. Estimating the Model
+
+While mutliple algorithms exist to determine the optimal parameter vector $\beta$, we start with the derivation of the closed-form formula. Again, we face the following optimization problem:
+
+$$
+\min_{\beta} \quad \frac{1}{n} \sum_{i=1}^n \left(y^{(i)} - \mathbf{x}^{(i)} \beta \right)^2
+$$
+
+where $\mathbf{x}^{(i)}$ is the $i$-th row of the feature matrix $X$. This translates to finding the gradient $\nabla_{\beta}$ at $0$:
+
+$$
+\nabla_\beta \frac{1}{n} (\mathbf{y} - X\beta)^\top(\mathbf{y} - X\beta)
+$$
+
+Developping gives:
+
+$$\begin{align*}
+\nabla_{\boldsymbol{\beta}} \hat{L}(\boldsymbol{\beta}) &= \nabla_{\boldsymbol{\beta}} \frac{1}{n} \left(\mathbf{y}- X\boldsymbol{\beta}\right)^\top\left(\mathbf{y}- X\boldsymbol{\beta}\right)\\
+&= \frac{1}{n} \nabla_{\boldsymbol{\beta}} \left(\mathbf{y}^\top \mathbf{y} - \mathbf{y}^\top X \boldsymbol{\beta} - \boldsymbol{\beta}^\top X^\top \mathbf{y} + \boldsymbol{\beta}^\top X^\top X \boldsymbol{\beta}\right)\\
+&= \frac{1}{n} \nabla_{\boldsymbol{\beta}} \left(\mathbf{y}^\top \mathbf{y} - 2 \boldsymbol{\beta}^\top X^\top \mathbf{y} + \boldsymbol{\beta}^\top X^\top X \boldsymbol{\beta}\right)\\
+&= \frac{1}{n} \left(-2 X^\top \mathbf{y} + 2 X^\top X \boldsymbol{\beta}\right)\\
+&= \frac{2}{n} \left(X^\top X \boldsymbol{\beta} - X^\top \mathbf{y}\right).
+\end{align*}$$
+
+Finally, if we set this to $0$, we have the closed form solution:
+
+$$
+\hat{\boldsymbol{\beta}} = \left(X^\top X\right)^{-1} X^\top \mathbf{y}.
+$$
+
+This result is computed with `NumPy` below and visually evaluated. Let us suppose that we have the following model:
+
+$$
+\mathbf{y} = \beta_0 + \beta_1 \mathbf{x_1} + \beta_2 \mathbf{x_2} + \epsilon
+$$
+
+where we know that $\beta_0 = 1, \beta_1 = 0.5$, and $\beta_2 = 1.3$, while $\epsilon \sim \mathcal{N}(0, 3).$ We generate synthetic data with this model:
+
+```python
+# generate some data
+np.random.seed(0)
+n_samples = 100
+
+# model with two features
+x1 = np.random.rand(n_samples) * 10 # uniform distribution
+x2 = np.random.rand(n_samples) * 20 between 0 and 20)
+X = np.ones(n_samples).reshape(-1, 1)
+noise = np.random.randn(n_samples) * 2  # random noise
+y = 1 + 0.5 * X1 + 1.3 * X2 + noise
+
+# matrix X
+X = np.column_stack((np.ones(n_samples), x1, x2))
+```
+
+Once that we have the simulated data, we simply encode the close form solution we derived above and look how well it estimates the theoretical coefficients.
+
+```python
+def ols_estimate(X, y):
+    """Compute OLS estimates using the normal equation."""
+    X_transpose = X.T
+    beta_hat = np.linalg.inv(X_transpose @ X) @ X_transpose @ y
+    return beta_hat
+
+# estimate coefficients
+beta_hat = ols_estimate(X, y)
+print("Estimated coefficients:", beta_hat)
+```
+
+The results are clearly not perfect
+
+```text
+Estimated coefficients: [1.61461061 0.38967089 1.27411532]
+```
+
+But the reader should remember that we only generated $100$ samples. We did not talked about the variance, efficiency, standard errors, and other statistical metrics of our estimators but we should have in mind that the OLS method is colloquially referred to as the BLUE (best linear unbiased estimator) under some conditions. If those hold, one of the key properties of this estimator is that when the number of observations $n$ increases, the variance of the estimated coefficients decreases and they concentrate around their theoretical value. Indeed, if I use the same code as above but with `n_samples = 1,000,000`, I have:
+
+```text
+Estimated coefficients: [0.99860235 0.49944332 1.30022815]
+```
+
+In further versions of this repo, I will discuss this further but as for now I redirect the reader to one of my script written in R.
