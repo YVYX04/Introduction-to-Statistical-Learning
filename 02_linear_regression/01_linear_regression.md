@@ -292,4 +292,4 @@ But the reader should remember that we only generated $100$ samples. We did not 
 Estimated coefficients: [0.99860235 0.49944332 1.30022815]
 ```
 
-In further versions of this repo, I will discuss this further but as for now I redirect the reader to one of my script written in R.
+In further versions of this repo, I will discuss this further but as for now I redirect the reader to one of my script written in R. This script covers the linear regression in depth.
